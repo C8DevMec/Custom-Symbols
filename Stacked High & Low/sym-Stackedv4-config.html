@@ -1,0 +1,292 @@
+<!-- <div>
+    
+    <input type="text" placeholder="Type " id="inputId" class="inputClass">
+    <button type="button" onclick="getInputValue();">Get Value</button>
+    <script>
+        function getInputValue() {
+          // Selecting the input element and get its value 
+          let inputVal = document.getElementsByClassName("inputClass")[0].value;
+          // Displaying the value
+          {{var BarTitle = "newTitleTest"}}
+        //   {{let BarTitle = inputVal}}
+        //   return scope.BarTitle
+        //   console.log()
+        //   alert(inputVal);
+        }
+      </script>
+    <textarea name="ChangeTitle">
+        New title
+    </textarea>
+    Labels
+</div> -->
+<!DOCTYPE html>
+<html>
+<style>
+/* The container */
+.container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 16px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.container .checkmark:after {
+ 	top: 9px;
+	left: 9px;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: white;
+}
+.button {
+  background-color: #072f5f;
+  border: none;
+  color: white;
+  padding: 10px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+/*the container must be positioned relative:*/
+.custom-select {
+  position: relative;
+  font-family: Arial;
+}
+
+.custom-select select {
+  display: none; /*hide original SELECT element:*/
+}
+
+.select-selected {
+  background-color: DodgerBlue;
+}
+
+/*style the arrow inside the select element:*/
+.select-selected:after {
+  position: absolute;
+  content: "";
+  top: 14px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-color: #fff transparent transparent transparent;
+}
+
+/*point the arrow upwards when the select box is open (active):*/
+.select-selected.select-arrow-active:after {
+  border-color: transparent transparent #fff transparent;
+  top: 7px;
+}
+
+/*style the items (options), including the selected item:*/
+.select-items div,.select-selected {
+  color: #ffffff;
+  padding: 8px 16px;
+  border: 1px solid transparent;
+  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+  cursor: pointer;
+  user-select: none;
+}
+
+/*style items (options):*/
+.select-items {
+  position: absolute;
+  background-color: DodgerBlue;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+}
+
+/*hide the items when the select box is closed:*/
+.select-hide {
+  display: none;
+}
+
+.select-items div:hover, .same-as-selected {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+input[type='number']{
+    width: 100%;
+}
+input::placeholder {
+    font: 12px/3 sans-serif;
+}
+</style>
+<body>
+
+<h4>Select Interval</h4> <br>
+<!-- <div class="c-config-content"> -->
+<label class="container">
+    <input type="radio" id="hourly" name="hourly" value="Hourly" ng-model="config.SelectionInterval" onclick="img(0); warning(1)" >Hourly<br> 
+<span class="checkmark"></span>
+</label>
+<label class="container">
+    <input type="radio" id="daily" name="daily" value="Daily" ng-model="config.SelectionInterval" onclick="img(1); warning(1)" >Daily<br> 
+<span class="checkmark"></span>
+</label>
+<label class="container">
+    <input type="radio" id="monthly" name="daily" value="Monthly" ng-model="config.SelectionInterval" onclick="img(1); warning(1)">Monthly<br> 
+<span class="checkmark"></span>
+</label>
+
+<!-- if no config.SelectionInterval : create alert (red) -->
+<label class="container" id="note" style="color: red" onclick="img(0,1)">
+  <span>Note: No interval is selected.</span>
+</label>
+<!-- </div> -->
+
+
+<br>
+<h4>Categories</h4> <br>
+<label for="high">Greater than:</label>
+<input type="number" id="high" name="high" ng-model="config.SelectionHighLimit" placeholder="*required"><br><br>
+<label for="low">Less than:</label>
+<input type="number" id="low" name="low" ng-model="config.SelectionLowLimit" style="position: relative; left: 20.2px" placeholder="*required"><br><br>
+
+
+<h4>Legends</h4> <br>
+<label for="label1"></label>
+<input type="text" id="label1" name="label1" ng-model="config.SelectionLabel1" placeholder="Label 1"><br><br>
+<label for="label2"></label>
+<input type="text" id="label2" name="label2" ng-model="config.SelectionLabel2" placeholder="Label 2" ><br><br>
+<!-- if config.SelectionInterval == 'hourly' : SHOW -->
+<div class="row" id="demo" hidden> <h5>Select Offset
+  <select name="demo" ng-model="config.SelectionOffSet" >
+    <option value="0"->0</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    <option value="9">9</option>
+    <option value="10">10</option>
+    <option value="11">11</option>
+    <option value="12">12</option>
+    <option value="13">13</option>
+    <option value="14">14</option>
+    <option value="15">15</option>
+    <option value="16">16</option>
+    <option value="17">17</option>
+    <option value="18">18</option>
+    <option value="19">19</option>
+    <option value="20">20</option>
+    <option value="21">21</option>
+    <option value="22">22</option>
+    <option value="23">23</option>
+    <option value="24">24</option>
+    <option value="25">25</option>
+    <option value="26">26</option>
+    <option value="27">27</option>
+    <option value="28">28</option>
+    <option value="29">29</option>
+    <option value="30">30</option>
+    <option value="31">31</option>
+    <option value="32">32</option>
+    <option value="33">33</option>
+    <option value="34">34</option>
+    <option value="35">35</option>
+    <option value="36">36</option>
+    <option value="37">37</option>
+    <option value="38">38</option>
+    <option value="39">39</option>
+    <option value="40">40</option>
+    <option value="41">41</option>
+    <option value="42">42</option>
+    <option value="43">43</option>
+    <option value="44">44</option>
+    <option value="45">45</option>
+    <option value="46">46</option>
+    <option value="47">47</option>
+    <option value="48">48</option>
+    <option value="49">49</option>
+    <option value="50">50</option>
+    <option value="51">51</option>
+    <option value="52">52</option>
+    <option value="53">53</option>
+    <option value="54">54</option>
+    <option value="55">55</option>
+    <option value="56">56</option>
+    <option value="57">57</option>
+    <option value="58">58</option>
+    <option value="59">59</option></h4>
+  </select>
+</div>
+
+
+
+</body>
+<script>
+   function img(x){
+    if (x==0)
+    document.getElementById('demo').style.display="block";
+    else
+    document.getElementById('demo').style.display="none";
+    return;
+   }
+
+   function warning(x){
+    if (x==0)
+    document.getElementById('note').style.display="block";
+    else
+    document.getElementById('note').style.display="none";
+    return;
+   }
+  
+  //  console.log(config.SelectionInterval); 
+</script>
+</html>

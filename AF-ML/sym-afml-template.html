@@ -1,0 +1,110 @@
+<style type="text/css">
+	#container {	
+		overflow-y: auto;
+		overflow-x: auto;
+	}
+	.scrollable {
+		overflow: auto; 
+		height: calc(100% - 45px);
+	}
+	.relative {
+		position: relative;
+	}
+	.no-margin-bottom {
+		margin-bottom : 0;
+	}
+	.text-right {
+		text-align: right;
+	}
+	.state {
+		padding : 2px 5px;
+		color : #fff;
+		border-radius: 5px;
+		text-align: center;
+		font-size : 11px;
+	}
+	.normal {
+		background : green;
+	}
+	.abnormal  {
+		background : red;
+	}
+    .form-control {
+        width: calc(100% - 10px);
+    }
+    .small-btn {
+        font-size: 10px;
+        margin : 0px;
+        min-width: 30px;
+        width: 30px;
+        padding : 5px;
+    }
+	.small-btn-block {
+		font-size: 10px;
+        margin : 0px;
+        min-width: 30px;
+        width: 72px;
+        padding : 5px;
+	}
+	.v-padding {
+		padding : 5px 0px;
+	}
+</style>
+<div style="height : 100%;" class="no-expand">  
+	<div class="v-padding text-right">
+		<button class="c-primary-button" ng-click="refreshData()">Refresh</button>
+		<button class="c-primary-button" ng-click="saveChanges()">Save Changes</button>
+	</div>
+	<div class="scrollable">
+		<div  class="pv-table pv-table-style-light">
+			<table class="custom-table"  style="table-layout:fixed; border-collapse:collapse; text-align:left !important; width: 100%;">
+				<tbody>
+					<tr class="pv-table-header-row">
+						<th class="pv-table-header-cell relative" ng-repeat="c in columns">
+							<div style="white-space: pre-wrap; width : 100%; word-break: break-all; font-size: 11px;">{{ c.name }}</div>
+						</th>
+                        <th class="pv-table-header-cell relative" style="width:100px;  font-size: 11px;">Option</th>
+                    </tr>
+                    <tr class="pv-table-header-row">
+                        <td class="pv-table-header-cell relative" ng-repeat="c in columns">
+                            <input type="text" class="form-control" ng-model="new[c.name]">
+                        </td>
+                        <td class="pv-table-header-cell relative">
+                            <button class="c-primary-button small-btn-block" ng-click="insertData()">Insert</button>
+                        </td>
+                    </tr>
+					<tr class="pv-table-data-row" ng-repeat="(idx, row) in rows | filter:new">
+						<td class="pv-table-data-cell" ng-repeat="c in columns">
+							<input ng-if="editIndex == idx"  type="text" class="form-control" ng-model="editRowDetails[c.name]">
+                            <div ng-if="editIndex != idx" style="white-space: pre-wrap; width : 100%; word-break: break-all;">{{ row[c.name] }}</div>
+                        </td>
+						<td class="pv-table-data-cell">
+							<div ng-if="editIndex != idx">
+								<button class="c-primary-button small-btn" ng-click="editData(idx)">Edit</button>
+								<button class="c-primary-button small-btn" ng-click="deleteData(idx)">Delete</button>
+							</div>
+							<div ng-if="editIndex == idx">
+								<button class="c-primary-button small-btn" ng-click="updateData(idx)">Update</button>
+								<button class="c-primary-button small-btn" ng-click="cancelEdit(idx)">Cancel</button>
+							</div>
+                        </td>
+					</tr>
+					<tr class="pv-table-data-row" ng-if="tableData == undefined">
+						<td class="pv-table-data-cell" colspan="3">Loading Data...</td>
+					</tr>
+                </tbody>
+                <!-- <tfoot>
+                    
+                    <tr class="pv-table-data-row" >
+                        <td class="pv-table-data-cell" colspan="{{ columns.length + 1 }}">
+                            <button class="c-primary-button small-btn">First</button>
+                            <button class="c-primary-button small-btn">Prev</button>
+                            <button class="c-primary-button small-btn">Next</button>
+                            <button class="c-primary-button small-btn">Delete</button>
+                        </td>
+                    </tr>
+                </tfoot> -->
+			</table>
+		</div>
+	</div>
+</div> 

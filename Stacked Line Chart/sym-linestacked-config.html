@@ -1,0 +1,73 @@
+<div class="c-side-pane t-toolbar">
+    <span style="color:#fff; margin-left:15px">Attributes</span>
+</div>
+<div class="config-option-format">
+	<select style="width:100%;" ng-options="idx as t for (idx, t) in runtimeData.traces" ng-model="runtimeData.trace" size="10"></select>
+    <div style="text-align:right;margin-top:10px;">
+        <button class="c-primary-button trend-config-trace-arrange-button" 
+            ng-click="runtimeData.removeTrace(runtimeData.trace)">
+            <span class="k-icon k-delete"></span>
+        </button>
+    </div>
+
+    <pv-color-picker
+            colorkeyword="Attribute Fill Color"
+            options="{ defaultPalette: 'grayscale', transparent: false }"
+            ng-model="runtimeData.TraceColor" 
+            ng-model-options="{ getterSetter: true }">
+    </pv-color-picker>
+</div>
+<!-- <div class="c-side-pane t-toolbar">
+    <span style="color:#fff; margin-left:15px">Background Color</span>
+</div>
+<div class="config-option-format">
+    <pv-color-picker
+            color-keyword="Color"
+            options="{ defaultPalette: 'grayscale', transparent: true }"
+            ng-model="runtimeData.BackgroundColor" 
+            ng-model-options="{ getterSetter: true }">
+    </pv-color-picker>
+</div>
+<div class="c-side-pane t-toolbar">
+    <span style="color:#fff; margin-left:15px">Outline Color</span>
+</div>
+<div class="config-option-format">
+    <pv-color-picker
+            color-keyword="Color"
+            options="{ defaultPalette: 'grayscale', transparent: false }"
+            ng-model="runtimeData.OutlineColor" 
+            ng-model-options="{ getterSetter: true }">
+    </pv-color-picker>
+</div> -->
+<!-- <div class="c-side-pane t-toolbar">
+    <span style="color:#fff; margin-left:15px">Granularity</span>
+</div>
+<div class="config-option-format">
+    <select style="width:100%;" ng-options="g.id as g.label for (idx, g) in runtimeData.granularities" 
+        ng-model="runtimeData.granularity" 
+        ng-model-options="{ getterSetter: true }" ></select>
+</div> -->
+<!-- 
+<div class="c-side-pane t-toolbar">
+    <span style="color:#fff; margin-left:15px">Low</span>
+</div>
+<div class="config-option-format">
+    <div style="margin-bottom:10px;">
+    	<input 
+    		ng-model="runtimeData.LowRangeMin" 
+    		ng-model-options="{ getterSetter: true }" 
+    		style="float:left; width:calc(50% - 11px); margin-right: 3px; padding: 2px;" placeholder="Min">
+    	<input 
+    		ng-model="runtimeData.LowRangeMax" 
+    		ng-model-options="{ getterSetter: true }" 
+    		style="float:left; width:calc(50% - 11px); margin-left: 3px; padding : 2px;" placeholder="Max">
+    	<div style="clear:both;"></div>
+    </div>
+
+    <pv-color-picker
+            color-keyword="Color"
+            options="{ defaultPalette: 'grayscale', transparent: false }"
+            ng-model="runtimeData.lowFill" 
+            ng-model-options="{ getterSetter: true }">
+    </pv-color-picker>
+</div> -->

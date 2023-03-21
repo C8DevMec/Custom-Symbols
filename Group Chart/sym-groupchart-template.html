@@ -1,0 +1,12 @@
+<div style="width:100%; height:100%;" class="no-expand">
+    <div ng-if="config.DisplayType == 'Hourly'">
+        Select Date : <input type="date" ng-model="filter.date">
+    </div>
+    <div ng-if="config.DisplayType == 'Daily'">
+        Select Month : 
+        <select ng-model="filter.month" ng-options="i as m for (i, m) in months"></select>
+        <select ng-model="filter.year" ng-options="y as y for (i, y) in years"></select>
+    </div>
+
+    <div id="{{ containerId }}" style="width: 100%; height : calc(100% - 30px)"></div>
+</div>

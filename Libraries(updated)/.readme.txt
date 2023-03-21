@@ -1,0 +1,1 @@
+Copy 1-core.js, 2-chart.js, 3-animated.js, 4-anychart-base.js, 5-anychart-exports.js,6-anychart-linear-gauge.js, 7-anychart-ui.js to [PI Vision Directory]\Scripts\app\editor\symbols\ext\libraries

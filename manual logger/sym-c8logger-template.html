@@ -1,0 +1,66 @@
+<style type="text/css">
+	#container {	
+		overflow-y: auto;
+		overflow-x: auto;
+	}
+	.scrollable {
+		overflow: auto; 
+		height: inherit;
+	}
+	.relative {
+		position: relative;
+	}
+	.textfield {
+		width : calc(100% - 8px);
+		border : 1px solid #b0b0b0 !important;
+	}
+	.text-right {
+		text-align: right;
+	}
+</style>
+<div id="container" style="height : 100%;" class="no-expand">  
+	<div class="scrollable">
+		<div  class="pv-table pv-table-style-light">
+			<table class="custom-table" width="100%" style="table-layout:fixed; border-collapse:collapse; text-align:left !important;">
+				<tbody>
+					<tr class="pv-table-header-row">
+						<th class="pv-table-header-cell relative" ng-if="config.DisplayColumn.TagName">Tag Name</th>
+						<th class="pv-table-header-cell relative" ng-if="config.DisplayColumn.DisplayName">Display Name</th>
+						<th class="pv-table-header-cell relative" ng-if="config.DisplayColumn.Timestamp">Date</th>
+						<th class="pv-table-header-cell relative" ng-if="config.DisplayColumn.Timestamp">Time</th>
+
+						<th class="pv-table-header-cell relative">Value</th>
+					</tr>
+					<tr class="pv-table-data-row" ng-repeat="(idx, v) in values">
+						<td class="pv-table-data-cell" ng-if="config.DisplayColumn.TagName">
+							{{ v.tag }}
+						</td>
+						<td class="pv-table-data-cell" ng-if="config.DisplayColumn.DisplayName">
+							{{ v.display_name }}
+						</td>
+						<td class="pv-table-data-cell" ng-if="config.DisplayColumn.DisplayName" ng-if="config.DisplayColumn.Timestamp">
+							<input type="date" class="textfield" ng-model="v.timestamp_date">
+						</td>
+						<td class="pv-table-data-cell" ng-if="config.DisplayColumn.DisplayName" ng-if="config.DisplayColumn.Timestamp">
+							<input type="time" class="textfield" ng-model="v.timestamp_time">
+						</td>
+						<td class="pv-table-data-cell">
+							<input type="text" class="textfield" ng-model="v.value">
+						</td>
+					</tr>
+				</tbody>
+				<tfoot>
+					<tr class="pv-table-data-row">
+						<td ng-if="config.DisplayColumn.TagName"></td>
+						<td ng-if="config.DisplayColumn.DisplayName"></td>
+						<td ng-if="config.DisplayColumn.Timestamp"></td>
+						<td ng-if="config.DisplayColumn.Timestamp"></td>
+						<td class="pv-table-data-cell text-right">
+							<button ng-click="writeData()" class="c-primary-button" ng-disabled="writing">{{ writing ? 'Writing Data' : 'Submit'  }}</button>
+						</td>
+					</tr>
+				</tfoot>
+			</table>
+		</div>
+	</div>
+</div> 

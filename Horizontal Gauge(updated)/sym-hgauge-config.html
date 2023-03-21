@@ -1,0 +1,137 @@
+<div class="c-side-pane t-toolbar">
+    <span style="color:#fff; margin-left:15px">Gauge Settings</span>
+</div>
+<div class="config-option-format">
+    <div style="margin-bottom:10px;">
+        <input 
+            ng-model="runtimeData.min" 
+            ng-model-options="{ getterSetter: true }" 
+            style="float:left; width:calc(50% - 11px); margin-right: 3px; padding: 2px;" placeholder="Min">
+        <input 
+            ng-model="runtimeData.max" 
+            ng-model-options="{ getterSetter: true }" 
+            style="float:left; width:calc(50% - 11px); margin-left: 3px; padding : 2px;" placeholder="Max">
+        <div style="clear:both;"></div>
+    </div>
+    <!-- <label><input type="checkbox" ng-model="runtimeData.isPercent" ng-model-options="{ getterSetter: true }" > <small>Percent</small></label> -->
+</div>
+
+<div class="c-side-pane t-toolbar">
+    <span style="color:#fff; margin-left:15px">Low</span>
+</div>
+<div class="config-option-format">
+    <div style="margin-bottom:10px;">
+        <input 
+            ng-model="runtimeData.LowRangeMin" 
+            ng-model-options="{ getterSetter: true }" 
+            style="float:left; width:calc(50% - 11px); margin-right: 3px; padding: 2px;" placeholder="Min">
+        <input 
+            ng-model="runtimeData.LowRangeMax" 
+            ng-model-options="{ getterSetter: true }" 
+            style="float:left; width:calc(50% - 11px); margin-left: 3px; padding : 2px;" placeholder="Max">
+        <div style="clear:both;"></div>
+    </div>
+
+    <pv-color-picker
+            colorkeyword="Fill"
+            options="{ defaultPalette: 'grayscale', transparent: false }"
+            ng-model="runtimeData.lowFill" 
+            ng-model-options="{ getterSetter: true }">
+    </pv-color-picker>
+</div>
+
+<div class="c-side-pane t-toolbar">
+    <span style="color:#fff; margin-left:15px">Normal</span>
+</div>
+<div class="config-option-format">
+    
+    <div style="margin-bottom:10px;">
+        <input 
+            ng-model="runtimeData.NormalRangeMin" 
+            ng-model-options="{ getterSetter: true }" 
+            style="float:left; width:calc(50% - 11px); margin-right: 3px; padding: 2px;" placeholder="Min">
+        <input 
+            ng-model="runtimeData.NormalRangeMax" 
+            ng-model-options="{ getterSetter: true }" 
+            style="float:left; width:calc(50% - 11px); margin-left: 3px; padding : 2px;" placeholder="Max">
+        <div style="clear:both;"></div>
+    </div>
+
+    <pv-color-picker
+            colorkeyword="Fill"
+            options="{ defaultPalette: 'grayscale', transparent: false }"
+            ng-model="runtimeData.normalFill" 
+            ng-model-options="{ getterSetter: true }">
+    </pv-color-picker>
+</div>
+
+<div class="c-side-pane t-toolbar">
+    <span style="color:#fff; margin-left:15px">High</span>
+</div>
+<div class="config-option-format">
+    
+    <div style="margin-bottom:10px;">
+        <input 
+            ng-model="runtimeData.HighRangeMin" 
+            ng-model-options="{ getterSetter: true }" 
+            style="float:left; width:calc(50% - 11px); margin-right: 3px; padding: 2px;" placeholder="Min">
+        <input 
+            ng-model="runtimeData.HighRangeMax"
+            ng-model-options="{ getterSetter: true }" 
+            style="float:left; width:calc(50% - 11px); margin-left: 3px; padding : 2px;" placeholder="Max">
+        <div style="clear:both;"></div>
+    </div>
+
+    <pv-color-picker
+            colorkeyword="Fill"
+            options="{ defaultPalette: 'grayscale', transparent: false }"
+            ng-model="runtimeData.highFill" 
+            ng-model-options="{ getterSetter: true }">
+    </pv-color-picker>
+</div>
+
+<div class="c-side-pane t-toolbar">
+    <span style="color:#fff; margin-left:15px">Background</span>
+</div>
+<div class="config-option-format">
+    <pv-color-picker
+            colorkeyword="Fill"
+            options="{ defaultPalette: 'grayscale', transparent: true }"
+            ng-model="runtimeData.backgroundFill" 
+            ng-model-options="{ getterSetter: true }">
+    </pv-color-picker>
+</div>
+
+<div class="c-side-pane t-toolbar">
+    <span style="color:#fff; margin-left:15px">Outline</span>
+</div>
+<div class="config-option-format">
+    <pv-color-picker
+            colorkeyword="Color"
+            options="{ defaultPalette: 'grayscale', transparent: false }"
+            ng-model="runtimeData.outlineColor" 
+            ng-model-options="{ getterSetter: true }">
+    </pv-color-picker>
+</div>
+
+<div class="c-side-pane t-toolbar">
+    <span style="color:#fff; margin-left:15px">Marker</span>
+</div>
+<div class="config-option-format">
+    
+    <div>
+        <input type="checkbox" ng-model="runtimeData.ShowValue" ng-model-options="{ getterSetter: true }"> Show Marker Value
+    </div>
+    <div ng-show="runtimeData.showUOMCheckbox">
+        <input type="checkbox" ng-model="runtimeData.ShowUOM" ng-model-options="{ getterSetter: true }"> Show UOM
+    </div>
+    <div style="height : 10px;"></div>
+
+    <pv-color-picker
+            colorkeyword="Color"
+            options="{ defaultPalette: 'grayscale', transparent: false }"
+            ng-model="runtimeData.markerColor" 
+            ng-model-options="{ getterSetter: true }">
+    </pv-color-picker>
+
+</div>

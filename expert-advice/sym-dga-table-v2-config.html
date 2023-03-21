@@ -1,0 +1,30 @@
+<!-- <div class="c-side-pane t-toolbar">
+    <span style="color:#fff; margin-left:15px">Expert Advice Attribute</span>
+</div>
+<div class="config-option-format"(h)
+    <select ng-model="runtimeData.ExpertAdviceAttribute" ng-change="runtimeData.updateExperAdviceAttribute(runtimeData.ExpertAdviceAttribute)" style="width:100%;"
+        ng-options="(idx * 1) as h.text for (idx, h) in config.Headers">
+    </select>
+</div> -->
+<div class="c-side-pane t-toolbar">
+    <span style="color:#fff; margin-left:15px">Columns</span>
+</div>
+<div class="config-option-format">
+
+    <div style="font-size: 12px; padding : 2px 0;" ng-repeat="(idx, h) in runtimeData.ColumnHeaders">
+        <input type="checkbox" ng-change="runtimeData.toggleHeader(idx, h.show)" ng-model="h.show" style="vertical-align: top;"/> {{ h.title }}
+    </div>
+</div>
+<!-- <div class="c-side-pane t-toolbar">
+    <span style="color:#fff; margin-left:15px">Background Color</span>
+</div>
+<div class="config-option-format">
+    <pv-color-picker id="backgroundcolor" ng-model="config.BackgroundColor"></pv-color-picker>
+</div>
+<br>
+<div class="c-side-pane t-toolbar">
+    <span style="color:#fff; margin-left:15px">Text Color</span>
+</div>
+<div class="config-option-format">
+    <pv-color-picker id="backgroundcolor" ng-model="config.TextColor"></pv-color-picker>
+</div> -->

@@ -1,0 +1,84 @@
+<style type="text/css">
+  table {
+    text-align: left;
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  th.hname {
+    /* background: gray;
+    color: white; */
+    text-align: center;
+  }
+
+
+  .pagination {
+    display: flex;
+    max-width: 300px;
+    min-width: 300px;
+  }
+
+  .prev,
+  .next {
+    padding: 2px 5px;
+    border-radius: 3px;
+    border: none;
+    background-color: #5d5f61;
+    color: #fff;
+    cursor: pointer;
+    margin: 1px 2px;
+  }
+
+  .prev[disabled],
+  .next[disabled] {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  input[type=number] {
+    text-align: center;
+  }
+
+  .timestamp {
+    text-align: left;
+  }
+
+  .value {
+    text-align: center;
+  }
+</style>
+
+
+<div>
+  <table class="custom-table" style="border-collapse:collapse;">
+    <thead>
+      <tr class="pv-table-header-row gray">
+        <th class="pv-table-header-cell" ng-style="{'font-size' : config.FontSize + 'px'}">
+          Timestamp</th>
+        <th class="pv-table-header-cell hname" ng-style="{'font-size' : config.FontSize + 'px'}">
+          {{ config.HeadersName.name }}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="r in rows|limitTo:rowsPerPage:pageOffset" class="pv-table-data-row">
+        <td class="pv-table-data-cell timestamp" ng-style="{'font-size' : config.FontSize + 'px'}">
+          {{ r.timestamp }}</td>
+        <td class="pv-table-data-cell value" ng-repeat="c in r.columns"
+          ng-style="{'font-size' : config.FontSize + 'px'}">
+          {{ c.Value }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="pagination">
+    <button class="prev" ng-click="prevPage()" ng-disabled="currentPage == 1"
+      ng-style="{'font-size' : config.FontSize + 'px'}">Prev</button>
+    <span style="color:azure; font-size: 12px; padding-top: 3px;"
+      ng-style="{'font-size' : config.FontSize + 'px'}">{{currentPage}} of {{totalPages}} pages</span>
+    <button class="next" ng-click="nextPage()" ng-disabled="currentPage == totalPages"
+      ng-style="{'font-size' : config.FontSize + 'px'}">Next</button>
+    <span style="color:azure; font-size: 12px; padding-top: 3px;"
+      ng-style="{'font-size' : config.FontSize + 'px'}">page:</span>
+    <input ng-style="{'font-size' : config.FontSize + 'px'}" type="number" min="1" max="{{totalPages}}"
+      ng-model="currentPage" ng-change="goToPage(currentPage)"></input>
+  </div>
+</div>

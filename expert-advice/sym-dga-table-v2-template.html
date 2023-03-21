@@ -1,0 +1,195 @@
+<style type="text/css">
+	#container {	
+		overflow-y: auto;
+		overflow-x: auto;
+	}
+	.scrollable {
+		overflow: auto; 
+		height: inherit;
+	}
+	.relative {
+		position: relative;
+	}
+	.text-right {
+		text-align: right;
+	}
+	.lightbox-bg {
+		width: 100%;
+		height : 100%;
+		background : #000;
+		opacity: 0.5;
+		position: absolute;
+		z-index: 1;
+		top: 0px;
+	}
+	.lightbox {
+		left : calc(50% - 400px);
+		margin: 0 auto;
+		width: 770px;
+		/*width: 470px;*/
+		/*padding : 15px;*/
+		background : #fff;
+		z-index: 2;
+		position: absolute;
+		top:20px;
+		border: 1px solid #cccccc;
+	}
+
+	.lightbox.confirmation {
+		width: 500px;
+		left : calc(50% - 280px);
+	}
+	.with-border {
+		border-bottom : 1px solid #cccccc;
+	}
+	.modal-header {
+		padding : 5px;
+	}
+	.modal-header h5 {
+		font-size : 16px;
+	}
+	.modal-header .title {
+		font-size: 14px;
+		margin : 5px 0px;
+	}
+	.modal-body {
+		padding: 10px;
+	}
+	.btn-sm {
+		font-size: 10px;
+		margin-bottom: 0px;
+		padding-top: 3px;
+		padding-bottom: 3px;
+	}
+	.form-group-sm {	
+		margin-top : 10px;
+	}
+	.modal-body {
+		font-size: 12px;
+		text-align: left;
+	}
+	.modal-footer {
+		padding : 10px;
+	}
+	.pointer {
+		cursor: pointer;
+	}
+</style>
+<div id="container" style="height:100%;width:100%; overflow-x: auto;" class="no-expand">  
+	<div class="scrollable">
+		<div  class="pv-table pv-table-style-light" style="overflow:unset	 !important;">
+			<table class="custom-table" id="custom-table"  
+				style="table-layout:fixed; border-collapse:collapse; text-align:left !important;">
+				<tbody>
+					<tr class="pv-table-header-row">
+						<th class="pv-table-header-cell relative" 
+							style="width : {{ config.Columns[0].width ? config.Columns[0].width : '50px'; }}">
+							View
+						</th>
+						<th class="pv-table-header-cell relative" 
+							style="width : {{ config.Columns[1].width ? config.Columns[1].width : '100px'; }}">
+							Timestamp
+						</th>
+						<th class="pv-table-header-cell relative" 
+							ng-repeat="(idx, h) in config.ColumnHeaders"
+							ng-if="idx > 2 && h.show"
+							style="width : {{ config.Columns[idx].width ? config.Columns[idx].width : '100px'; }}">
+							{{ h.title }}
+						</th>
+					</tr>
+					<tr class="pv-table-data-row" 
+						ng-repeat="(i, r) in rows|limitTo:items:offset">
+						<td>
+							<button class="c-primary-button btn-sm" ng-click="showExpertAdvice(r.Value)">View</button>
+						</td>
+						<td class="pv-table-data-cell">
+							{{ r.Time }}
+						</td>
+						<td class="pv-table-data-cell" 
+							ng-repeat="(h_idx, h) in config.ColumnHeaders"
+							ng-if="h_idx > 2 && h.show">
+								{{ r.Value[h_idx] }}
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<div class="c-button-default-container" style="width: 300px;margin:10px 0px 0px;justify-content:left;">
+				<button class="c-primary-button trend-config-trace-arrange-button" 
+					ng-click="goToPage(1)"
+					ng-disabled="page <= 1">First</button>
+				<button class="c-primary-button trend-config-trace-arrange-button" 
+					ng-click="paginate(-1)"
+					ng-disabled="page <= 1">Prev</button>
+				<button class="c-primary-button trend-config-trace-arrange-button" 
+					ng-click="paginate(1)"
+					ng-disabled="page >= Math.ceil(rows.length/items)">Next</button>
+				<button class="c-primary-button trend-config-trace-arrange-button" 
+					ng-click="goToPage(Math.ceil(rows.length / items))"
+					ng-disabled="page >= Math.ceil(rows.length/items)">Last</button>
+			</div>
+		</div>
+	</div>
+	<div class="lightbox confirmation" ng-if="show_expert_advice">
+		<div class="text-center with-border modal-header">
+			<h6 class="title">Expert Advice</h6>
+		</div>
+		<div class="modal-body with-border">
+			<div class="form-group-sm">
+				<strong>Fault Type: </strong> {{ expert_advice.fault_type ? expert_advice.fault_type : 'N/A' }}
+			</div>
+			<div class="form-group-sm">
+				<strong>Description of Fault: </strong> {{ !expert_advice.possible_faults ? 'N/A' : ''}}
+				<div ng-repeat="description in expert_advice.possible_faults">
+					{{ description}}
+				</div>
+			</div>
+			<div class="form-group-sm">
+				<strong>TDCG Rate of Rise: </strong> {{ expert_advice.tdcg ? expert_advice.tdcg : 'N/A' }}
+			</div>
+			<br>
+			<div class="form-group-sm">
+				<strong>RECOMMENDED OPERATING PROCEDURE</strong>
+			</div>
+			<div class="form-group-sm">
+				<strong>Sampling Interval: </strong> {{ expert_advice.sampling }}
+			</div>
+			<div class="form-group-sm">
+				<strong>Operator Procedure: </strong>
+				<ol>
+					<li>1. Exercise Extreme Caution.</li>
+					<li>2. Analyze individual gasses to find cause.</li>
+					<li>3. Plan outage.</li>
+					<li>4. Call manufacturer and other consultants for advice.</li>
+				</ol>
+			</div>
+			<div class="form-group-sm">
+				<strong>Recommended Diagnostics: </strong>
+				<ol>
+					<li ng-repeat="d in expert_advice.diagnostics">{{ d }}</li>
+				</ol>
+			</div>
+		</div>
+		<div class="text-center with-border modal-header">
+			<h6 class="title">Complimentary Ratio</h6>
+		</div>
+		<div class="modal-body with-border">
+			<div class="form-group-sm">
+				<strong>Fault Type: </strong> {{ complimentary_ratio.fault_type }}
+			</div>
+			<br>
+			<div class="form-group-sm">
+				<strong>Recommended Diagnostics: </strong>
+				<ol>
+					<li ng-repeat="d in complimentary_ratio.diagnostics">{{ d }}</li>
+				</ol>
+			</div>
+		</div>
+		<div class="modal-footer">
+			<div class="text-right">
+				<button class="c-primary-button btn-sm" ng-click="closeExpertAdvice()">Close</button>
+			</div>
+		</div>
+	</div>
+	<div class="lightbox-bg youshallnotpass" ng-click="closeLightbox()" ng-if="showExpertAdviceModal">
+	</div>
+</div> 

@@ -1,0 +1,118 @@
+<style type="text/css">
+	.custom-label {
+		font-weight: normal;
+		color : #aaaaaa;
+	}
+	.custom-label.active{
+		font-weight : bold !important;
+		color : #000 !important;
+	}
+</style>
+<div class="c-side-pane t-toolbar">
+    <span style="color:#fff; margin-left:15px">Data Sources</span>
+</div>
+<div class="config-option-format">
+	<p style="font-size:12px;margin-bottom:5px;">
+		<span ng-class="runtimeData.selected_ds == 0 ? 'custom-label active' : 'custom-label'">C2H4</span>, 
+		<span ng-class="runtimeData.selected_ds == 1 ? 'custom-label active' : 'custom-label'">C2H2</span>, 
+        <span ng-class="runtimeData.selected_ds == 2 ? 'custom-label active' : 'custom-label'">CH4</span>,
+        <span ng-class="runtimeData.selected_ds == 3 ? 'custom-label active' : 'custom-label'">Fault</span>
+	</p>
+    <select size="5" ng-model="runtimeData.selected_ds" style="width:100%;">
+    	<option ng-value="$index" ng-repeat="d in runtimeData.datasources track by $index">{{ d }}</option>
+    </select>
+    <div style="text-align:right;">
+    	<button class="c-primary-button trend-config-trace-arrange-button"  
+	    	ng-click="runtimeData.moveTrace(runtimeData.selected_ds, -1)"
+	    	ng-disabled="runtimeData.selected_ds == 0">
+			<span class="k-icon k-i-arrow-n"></span>
+		</button>
+		<button class="c-primary-button trend-config-trace-arrange-button" 
+			ng-click="runtimeData.moveTrace(runtimeData.selected_ds, 1)"
+			ng-disabled="runtimeData.selected_ds >= runtimeData.datasources.length - 1">
+			<span class="k-icon k-i-arrow-s"></span>
+		</button>
+    	<button class="c-primary-button trend-config-trace-arrange-button" 
+	        ng-click="runtimeData.removeTrace(runtimeData.selected_ds)">
+			<span class="k-icon k-delete"></span>
+		</button>
+    </div>
+</div>
+
+<div class="c-side-pane t-toolbar">
+    <span style="color:#fff; margin-left:15px">PD</span>
+</div>
+<div class="config-option-format">
+    <pv-color-picker
+            options="{ defaultPalette: 'grayscale', transparent: false }"
+            ng-model="runtimeData.FillColorPD" 
+            ng-model-options="{ getterSetter: true }">
+    </pv-color-picker>
+</div>
+
+<div class="c-side-pane t-toolbar">
+    <span style="color:#fff; margin-left:15px">T1</span>
+</div>
+<div class="config-option-format">
+    <pv-color-picker
+    		color-keyword="Test"
+            options="{ defaultPalette: 'grayscale', transparent: false}"
+            ng-model="runtimeData.FillColorT1" 
+            ng-model-options="{ getterSetter: true}">
+    </pv-color-picker>
+</div>
+
+<div class="c-side-pane t-toolbar">
+    <span style="color:#fff; margin-left:15px">T2</span>
+</div>
+<div class="config-option-format">
+    <pv-color-picker
+            options="{ defaultPalette: 'grayscale', transparent: false }"
+            ng-model="runtimeData.FillColorT2" 
+            ng-model-options="{ getterSetter: true }">
+    </pv-color-picker>
+</div>
+
+<div class="c-side-pane t-toolbar">
+    <span style="color:#fff; margin-left:15px">T3</span>
+</div>
+<div class="config-option-format">
+    <pv-color-picker
+            options="{ defaultPalette: 'grayscale', transparent: false }"
+            ng-model="runtimeData.FillColorT3" 
+            ng-model-options="{ getterSetter: true }">
+    </pv-color-picker>
+</div>
+
+<div class="c-side-pane t-toolbar">
+    <span style="color:#fff; margin-left:15px">DT</span>
+</div>
+<div class="config-option-format">
+    <pv-color-picker
+            options="{ defaultPalette: 'grayscale', transparent: false }"
+            ng-model="runtimeData.FillColorDT" 
+            ng-model-options="{ getterSetter: true }">
+    </pv-color-picker>
+</div>
+
+<div class="c-side-pane t-toolbar">
+    <span style="color:#fff; margin-left:15px">D1</span>
+</div>
+<div class="config-option-format">
+    <pv-color-picker
+            options="{ defaultPalette: 'grayscale', transparent: false }"
+            ng-model="runtimeData.FillColorD1" 
+            ng-model-options="{ getterSetter: true }">
+    </pv-color-picker>
+</div>
+
+<div class="c-side-pane t-toolbar">
+    <span style="color:#fff; margin-left:15px">D2</span>
+</div>
+<div class="config-option-format">
+    <pv-color-picker
+            options="{ defaultPalette: 'grayscale', transparent: false }"
+            ng-model="runtimeData.FillColorD2" 
+            ng-model-options="{ getterSetter: true }">
+    </pv-color-picker>
+</div>

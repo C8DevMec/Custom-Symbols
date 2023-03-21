@@ -1,0 +1,2 @@
+1. Copy bar-graph.svg to [PIVISION Directory]\Images
+2. Copy sym-stackedbar.js, sym-stackedbar-config.html, sym-stackedbar-template.html to [PIVISION Directory]\Scripts\app\editor\symbols\ext

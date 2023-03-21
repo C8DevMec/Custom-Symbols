@@ -1,0 +1,332 @@
+<style>
+input[type='number']{
+    width: 80px;
+} 
+</style>
+<body >
+<!--     
+    <input ng-model="config.lenData">{{config.lenData}}
+    {{config.makeShow}} -->
+
+    <!-- Add input box for BarName1 here -->
+    
+    <div>
+        <b>Title:</b>
+        <input ng-model="config.WaterfallChartTitle">
+    </div>
+    <br>
+    <div>
+        <b>Y Range:</b>
+        <input type="number" ng-model="config.SelectedYRange">
+    </div>
+    <br>
+
+    <div id="SelectionDataMeasure1" ng-show={{config.makeShow1}} class={{config.makeHide1}}>
+        <label><b>Bar 1</b></label>
+            <div style="padding-left:20px">
+                <label for="InputBarName1">Name:</label>
+                <input id="InputBarName1" ng-model="config.InputBarName1">
+                <br>
+                <label for="SelectionDataMeasure1">Data Measure:</label>
+                <select id="SelectionDataMeasure1" ng-model="config.SelectionDataMeasure1" >
+                    <option value="relative">Relative</option>
+                    <option value="absolute">Absolute</option>
+                    <option value="total">Total</option>
+                </select>
+            </div>
+    </div>
+
+    <!-- Add input box for BarName2 here --> <br>
+
+    <div id="SelectionDataMeasure2"ng-show={{config.makeShow2}} class={{config.makeHide2}}>
+        <label><b>Bar 2</b></label>
+            <div style="padding-left:20px">
+                <label for="InputBarName2">Name:</label>
+                <input id="InputBarName2" ng-model="config.InputBarName2">
+                <br>
+                <label for="SelectionDataMeasure2">Data Measure:</label>
+                <select id="SelectionDataMeasure2" ng-model="config.SelectionDataMeasure2" >
+                    <option value="relative">Relative</option>
+                    <option value="absolute">Absolute</option>
+                    <option value="total">Total</option>
+                </select>
+            </div>
+    </div>
+
+    <!-- Add input box for BarName3 here --><br>
+
+    <div id="SelectionDataMeasure3" ng-show={{config.makeShow3}} class={{config.makeHide3}}>
+        <label><b>Bar 3</b></label>
+            <div style="padding-left:20px">
+                <label for="InputBarName3">Name:</label>
+                <input id="InputBarName3" ng-model="config.InputBarName3">
+                <br>
+                <label for="SelectionDataMeasure3">Data Measure:</label>
+                <select id="SelectionDataMeasure3" ng-model="config.SelectionDataMeasure3" >
+                    <option value="relative">Relative</option>
+                    <option value="absolute">Absolute</option>
+                    <option value="total">Total</option>
+                </select>
+            </div>
+    </div>
+    <br>
+    <div id="SelectionDataMeasure4" ng-show={{config.makeShow4}} class={{config.makeHide4}}>
+        <label><b>Bar 4</b></label>
+            <div style="padding-left:20px">
+                <label for="InputBarName4">Name:</label>
+                <input id="InputBarName4" ng-model="config.InputBarName4">
+                <br>
+                <label for="SelectionDataMeasure4">Data Measure:</label>
+                <select id="SelectionDataMeasure4" ng-model="config.SelectionDataMeasure4" >
+                   <option value="relative">Relative</option>
+                   <option value="absolute">Absolute</option>
+                   <option value="total">Total</option>
+                </select>
+            </div>
+    </div>
+    <br>
+    <div id="SelectionDataMeasure5" ng-show={{config.makeShow5}} class={{config.makeHide5}}>
+        <label><b>Bar 5</b></label>
+            <div style="padding-left:20px">
+                <label for="InputBarName5">Name:</label>
+                <input id="InputBarName5" ng-model="config.InputBarName5">
+                <br>
+                <label for="SelectionDataMeasure5">Data Measure:</label>
+                <select id="SelectionDataMeasure5" ng-model="config.SelectionDataMeasure5"  >
+                    <option value="relative">Relative</option>
+                    <option value="absolute">Absolute</option>
+                    <option value="total">Total</option>
+                </select>
+            </div>
+    </div>
+    <br>
+    <div id="SelectionDataMeasure6" ng-show={{config.makeShow6}} class={{config.makeHide6}}>
+        <label><b>Bar 6</b></label>
+            <div style="padding-left:20px">
+                <label for="InputBarName6">Name:</label>
+                <input id="InputBarName6" ng-model="config.InputBarName6">
+                <br>
+                <label for="SelectionDataMeasure6">Data Measure:</label>
+                <select id="SelectionDataMeasure6" ng-model="config.SelectionDataMeasure6"   >
+                    <option value="relative">Relative</option>
+                    <option value="absolute">Absolute</option>
+                    <option value="total">Total</option>
+                </select>
+            </div>
+    </div>
+    <br>
+    <div id="SelectionDataMeasure7" ng-show={{config.makeShow7}} class={{config.makeHide7}}>
+        <label><b>Bar 7</b></label>
+            <div style="padding-left:20px">
+                <label for="InputBarName7">Name:</label>
+                <input id="InputBarName7" ng-model="config.InputBarName7">
+                <br>
+                <label for="SelectionDataMeasure7">Data Measure:</label>
+                <select id="SelectionDataMeasure7" ng-model="config.SelectionDataMeasure7"  >
+                    <option value="relative">Relative</option>
+                    <option value="absolute">Absolute</option>
+                    <option value="total">Total</option>
+                </select>
+            </div>
+    </div>
+    <br>
+    <div id="SelectionDataMeasure8" ng-show={{config.makeShow8}} class={{config.makeHide8}}>
+        <label><b>Bar 8</b></label>
+            <div style="padding-left:20px">
+                <label for="InputBarName8">Name:</label>
+                <input id="InputBarName8" ng-model="config.InputBarName8">
+                <br>
+                <label for="SelectionDataMeasure8">Data Measure:</label>
+                <select id="SelectionDataMeasure8" ng-model="config.SelectionDataMeasure8"   >
+                    <option value="relative">Relative</option>
+                    <option value="absolute">Absolute</option>
+                    <option value="total">Total</option>
+                </select>
+            </div>
+    </div>
+    <br>
+    <div id="SelectionDataMeasure9" ng-show={{config.makeShow9}} class={{config.makeHide9}}>
+        <label><b>Bar 9</b></label>
+            <div style="padding-left:20px">
+                <label for="InputBarName9">Name:</label>
+                <input id="InputBarName9" ng-model="config.InputBarName9">
+                <br>
+                <label for="SelectionDataMeasure9">Data Measure:</label>
+                <select id="SelectionDataMeasure9" ng-model="config.SelectionDataMeasure9"  >
+                    <option value="relative">Relative</option>
+                    <option value="absolute">Absolute</option>
+                    <option value="total">Total</option>
+                </select>
+            </div>
+    </div>
+    <br>
+    <div id="SelectionDataMeasure10" ng-show={{config.makeShow10}} class={{config.makeHide10}}>
+        <label><b>Bar 10</b></label>
+            <div style="padding-left:20px">
+                <label for="InputBarName10">Name:</label>
+                <input id="InputBarName10" ng-model="config.InputBarName10">
+                <br>
+                <label for="SelectionDataMeasure10">Data Measure:</label>
+                <select id="SelectionDataMeasure10" ng-model="config.SelectionDataMeasure10"  >
+                    <option value="relative">Relative</option>
+                    <option value="absolute">Absolute</option>
+                    <option value="total">Total</option>
+                </select>
+            </div>
+    </div>
+    <br>
+    <div id="SelectionDataMeasure11" ng-show={{config.makeShow11}} class={{config.makeHide11}}>
+        <label><b>Bar 11</b></label>
+            <div style="padding-left:20px">
+                <label for="InputBarName11">Name:</label>
+                <input id="InputBarName11" ng-model="config.InputBarName11">
+                <br>
+                <label for="SelectionDataMeasure11">Data Measure:</label>
+                <select id="SelectionDataMeasure11" ng-model="config.SelectionDataMeasure11"   >
+                    <option value="relative">Relative</option>
+                    <option value="absolute">Absolute</option>
+                    <option value="total">Total</option>
+                </select>
+            </div>
+    </div>
+    <br>
+    <div id="SelectionDataMeasure12" ng-show={{config.makeShow12}} class={{config.makeHide12}}>
+        <label><b>Bar 12</b></label>
+            <div style="padding-left:20px">
+                <label for="InputBarName12">Name:</label>
+                <input id="InputBarName12" ng-model="config.InputBarName12">
+                <br>
+                <label for="SelectionDataMeasure12">Data Measure:</label>
+                <select id="SelectionDataMeasure12" ng-model="config.SelectionDataMeasure12"  >
+                    <option value="relative">Relative</option>
+                    <option value="absolute">Absolute</option>
+                    <option value="total">Total</option>
+                </select>
+            </div>
+    </div>
+    <br>
+    <div id="SelectionDataMeasure13"ng-show={{config.makeShow13}} class={{config.makeHide13}}>
+        <label><b>Bar 13</b></label>
+            <div style="padding-left:20px">
+                <label for="InputBarName13">Name:</label>
+                <input id="InputBarName13" ng-model="config.InputBarName13">
+                <br>
+                <label for="SelectionDataMeasure13">Data Measure:</label>
+                <select id="SelectionDataMeasure13" ng-model="config.SelectionDataMeasure13"   >
+                    <option value="relative">Relative</option>
+                    <option value="absolute">Absolute</option>
+                    <option value="total">Total</option>
+                </select>
+            </div>
+    </div>
+    <br>
+    <div id="SelectionDataMeasure14" ng-show={{config.makeShow14}} class={{config.makeHide14}}>
+        <label><b>Bar 14</b></label>
+            <div style="padding-left:20px">
+                <label for="InputBarName14">Name:</label>
+                <input id="InputBarName14" ng-model="config.InputBarName14">
+                <br>
+                <label for="SelectionDataMeasure14">Data Measure:</label>
+                <select id="SelectionDataMeasure14" ng-model="config.SelectionDataMeasure14"  >
+                    <option value="relative">Relative</option>
+                    <option value="absolute">Absolute</option>
+                    <option value="total">Total</option>
+                </select>
+            </div>
+    </div>
+    <br>
+    <div id="SelectionDataMeasure15" ng-show={{config.makeShow15}} class={{config.makeHide15}}>
+        <label><b>Bar 15</b></label>
+            <div style="padding-left:20px">
+                <label for="InputBarName15">Name:</label>
+                <input id="InputBarName15" ng-model="config.InputBarName15">
+                <br>
+                <label for="SelectionDataMeasure15">Data Measure:</label>
+                <select id="SelectionDataMeasure15" ng-model="config.SelectionDataMeasure15"   >
+                    <option value="relative">Relative</option>
+                    <option value="absolute">Absolute</option>
+                    <option value="total">Total</option>
+                </select>
+            </div>
+    </div>
+    <br>
+    <div id="SelectionDataMeasure16" ng-show={{config.makeShow16}} class={{config.makeHide16}}>
+        <label><b>Bar 16</b></label>
+            <div style="padding-left:20px">
+                <label for="InputBarName16">Name:</label>
+                <input id="InputBarName16" ng-model="config.InputBarName16">
+                <br>
+                <label for="SelectionDataMeasure16">Data Measure:</label>
+                <select id="SelectionDataMeasure16" ng-model="config.SelectionDataMeasure16"  >
+                    <option value="relative">Relative</option>
+                    <option value="absolute">Absolute</option>
+                    <option value="total">Total</option>
+                </select>
+            </div>
+    </div>
+    <br>
+    <div id="SelectionDataMeasure17" ng-show={{config.makeShow17}} class={{config.makeHide17}}>
+        <label><b>Bar 17</b></label>
+            <div style="padding-left:20px">
+                <label for="InputBarName17">Name:</label>
+                <input id="InputBarName17" ng-model="config.InputBarName17">
+                <br>
+                <label for="SelectionDataMeasure17">Data Measure:</label>
+                <select id="SelectionDataMeasure17" ng-model="config.SelectionDataMeasure17"   >
+                    <option value="relative">Relative</option>
+                    <option value="absolute">Absolute</option>
+                    <option value="total">Total</option>
+                </select>
+            </div>
+    </div>
+    <br>
+    <div id="SelectionDataMeasure18" ng-show={{config.makeShow18}} class={{config.makeHide18}}>
+        <label><b>Bar 18</b></label>
+            <div style="padding-left:20px">
+                <label for="InputBarName18">Name:</label>
+                <input id="InputBarName18" ng-model="config.InputBarName18">
+                <br>
+                <label for="SelectionDataMeasure18">Data Measure:</label>
+                <select id="SelectionDataMeasure18" ng-model="config.SelectionDataMeasure18"  >
+                    <option value="relative">Relative</option>
+                    <option value="absolute">Absolute</option>
+                    <option value="total">Total</option>
+                </select>
+            </div>
+    </div>
+    <br>
+    <div id="SelectionDataMeasure19" ng-show={{config.makeShow19}} class={{config.makeHide19}}>
+        <label><b>Bar 19</b></label>
+            <div style="padding-left:20px">
+                <label for="InputBarName19">Name:</label>
+                <input id="InputBarName19" ng-model="config.InputBarName19">
+                <br>
+                <label for="SelectionDataMeasure19">Data Measure:</label>
+                <select id="SelectionDataMeasure19" ng-model="config.SelectionDataMeasure19"   >
+                    <option value="relative">Relative</option>
+                    <option value="absolute">Absolute</option>
+                    <option value="total">Total</option>
+                </select>
+    </div>
+    <br>
+    <div id="SelectionDataMeasure20" ng-show={{config.makeShow20}} class={{config.makeHide20}}>
+        <label><b>Bar 20</b></label>
+            <div style="padding-left:20px">
+                <label for="InputBarName20">Name:</label>
+                <input id="InputBarName20" ng-model="config.InputBarName20">
+                <br>
+                <label for="SelectionDataMeasure20">Data Measure:</label>
+                <select id="SelectionDataMeasure20" ng-model="config.SelectionDataMeasure20"   >
+                    <option value="relative">Relative</option>
+                    <option value="absolute">Absolute</option>
+                    <option value="total">Total</option>
+                </select>
+            </div>
+    </div>
+    <br>
+    <label for="colorpicker"><b>Color Picker:</b></label>
+    <input type="color" id="colorpicker" value="#0000ff">
+
+
+</body>
+

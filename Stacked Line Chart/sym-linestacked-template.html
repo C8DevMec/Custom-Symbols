@@ -1,0 +1,40 @@
+<div class="no-expand" style="background : #fff; width:100%; height: 100%;">
+    <div style="padding: 5px;" ng-if="config.TimeFilter">
+        <table style="font-size:12px;">
+            <tr>
+                <td>From : &nbsp;</td>
+                <td>
+                    <select 
+                        ng-options="m.idx as m.name for m in months" 
+                        ng-model="from.month_idx" 
+                        ng-change="filterByDate()"></select>
+                    <select 
+                        ng-options="d as d for d in days" 
+                        ng-change="filterByDate()" 
+                        ng-model="from.day"></select>
+                    <select 
+                        ng-options="y as y for y in years" 
+                        ng-change="filterByDate()" 
+                        ng-model="from.year"></select>
+                </td>
+                <td>&emsp;&emsp;&emsp;</td>
+                <td>To : &nbsp;</td>
+                <td>
+                    <select 
+                        ng-options="m.idx as m.name for m in months"
+                        ng-change="filterByDate()" 
+                        ng-model="to.month_idx"></select>
+                    <select 
+                        ng-options="d as d for d in days" 
+                        ng-change="filterByDate()"
+                        ng-model="to.day"></select>
+                    <select 
+                        ng-options="y as y for y in years" 
+                        ng-change="filterByDate()"
+                        ng-model="to.year"></select>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <canvas style="width:100%; height:calc(100% - 30px);" id="{{ containerId }}"></canvas>
+</div>

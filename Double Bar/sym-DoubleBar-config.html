@@ -1,0 +1,54 @@
+<style>
+    .css{
+  width:50px;
+  height:50px;
+  background:black;
+  margin:10px; color:white;
+  padding:20px;
+}
+</style>
+<body>
+    <div id="Bar1" ng-show={{config.makeShow1}} class={{config.makeHide1}}>
+        <label><b>Double Bar 1</b></label>
+            <div style="padding-left:20px">
+                <label for="InputBarName1">Name:</label>
+                <input id="InputBarName1" ng-model="config.InputBarName1">
+            </div>
+    </div>
+    <br>
+    <div id="Bar3" ng-show={{config.makeShow3}} class={{config.makeHide3}}>
+        <label><b>Double Bar 2</b></label>
+            <div style="padding-left:20px">
+                <label for="InputBarName3">Name:</label>
+                <input id="InputBarName3" ng-model="config.InputBarName3">
+            </div>
+    </div>
+    <br>
+    <div id="Bar5" ng-show={{config.makeShow5}} class={{config.makeHide5}}>
+        <label><b>Double Bar 3</b></label>
+            <div style="padding-left:20px">
+                <label for="InputBarName5">Name:</label>
+                <input id="InputBarName5" ng-model="config.InputBarName5">
+            </div>
+    </div>
+    <br>
+    <div id="Bar7" ng-show={{config.makeShow7}} class={{config.makeHide7}}>
+        <label><b>Double Bar 4</b></label>
+            <div style="padding-left:20px">
+                <label for="InputBarName7">Name:</label>
+                <input id="InputBarName7" ng-model="config.InputBarName7">
+            </div>
+    </div>  
+    <br>
+    <hr>
+    <br>
+    <label><b>Color Picker: Actual</b></label>
+    <div ng-app>
+        <input type="color" ng-model="config.ColorPickerActual" name="css" id="" />
+    </div>
+    <br>
+    <label><b>Color Picker: Target</b></label>
+    <div ng-app>
+        <input type="color" ng-model="config.ColorPickerTarget" name="css" id="" />
+    </div>
+</body>

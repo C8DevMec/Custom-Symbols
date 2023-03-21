@@ -1,0 +1,159 @@
+<style type="text/css">
+	#container {	
+		overflow-y: auto;
+		overflow-x: auto;
+	}
+	.scrollable {
+		overflow: auto; 
+		height: inherit;
+	}
+	.relative {
+		position: relative;
+	}
+	.no-margin-bottom {
+		margin-bottom : 0;
+	}
+	.text-right {
+		text-align: right;
+	}
+	.state {
+		padding : 2px 5px;
+		color : #fff;
+		border-radius: 5px;
+		text-align: center;
+		font-size : 11px;
+	}
+	.normal {
+		background : green;
+	}
+	.abnormal  {
+		background : red;
+	}
+	.row {
+		clear: both;
+	}
+	.row:after, .row:before {
+    display: table;
+    content: " ";
+	}
+	.col-sm-4	{
+		width: 33.33%;
+		float: left;
+	}
+	tr.bg-red {
+		background : #cf0000 !important;
+	}
+	tr.bg-red td {
+		color : #fff !important;
+	}
+	.badge {
+		background : #cf0000 !important;
+		padding : 5px 10px;
+		color : #fff;
+		border-radius: 5px;
+	}
+</style>
+<div style="height : 100%;" class="no-expand">  
+	<div class="scrollable">
+		<div  class="pv-table pv-table-style-light">
+			<table class="custom-table"  style="table-layout:fixed; border-collapse:collapse; text-align:left !important;">
+				<thead>
+					<tr class="pv-table-header-row">
+						<th class="pv-table-header-cell relative" colspan="{{ columnNumber + 2 }}">
+							<div class="row">
+								<div class="col-sm-4">
+									<input type="text" placeholder="Search Unit" ng-model="search.Unit">
+								</div>
+								<div class="col-sm-4">
+									<input type="text" placeholder="Search Attribute" ng-model="search.Attribute">
+								</div>
+							</div>
+						</th>
+				</tr>
+				</thead>
+				<tbody>
+					<tr class="pv-table-header-row">
+						<th class="pv-table-header-cell relative" 
+							ng-mousedown="onColumnMoveStart($event, $index, col)"
+							pv-touchstart="onColumnMoveStart($event, $index, col)">
+							Date & Time
+						</th>
+						<th ng-repeat="col in tableData.columns track by $index" 
+							ng-if="config.ColumnDetails[col].enabled" class="pv-table-header-cell relative">
+							{{ col }}
+						</th>
+						<th class="pv-table-header-cell relative" 
+							ng-mousedown="onColumnMoveStart($event, $index, col)"
+							pv-touchstart="onColumnMoveStart($event, $index, col)">
+							Value
+						</th>
+					</tr>
+					<tr class="pv-table-data-row" 
+						ng-repeat="row in tableData.rows|filter:search|limitTo:items:offset"
+						
+						>
+						<td class="pv-table-data-cell">
+							{{ data[row.Unit][row.Attribute].Time }}
+						</td>
+						<td class="pv-table-data-cell" 
+							ng-repeat="c in tableData.columns"
+							ng-if="config.ColumnDetails[c].enabled">
+							{{ row[c] }}
+						</td>
+						<td class="pv-table-data-cell">
+							<div ng-class="data[row.Unit][row.Attribute].Value == row['Set Level'] ? 'badge' : ''">
+								{{ data[row.Unit][row.Attribute].Value }}
+							</div>
+						</td>
+					</tr>
+					<tr class="pv-table-data-row" ng-if="tableData.rows == null">
+						<td class="pv-table-data-cell" colspan="{{ columnNumber }}">Loading Data...</td>
+					</tr>
+					<tr class="pv-table-data-row" ng-if="tableData.rows.length == 0">
+						<td class="pv-table-data-cell" colspan="{{ columnNumber }}">No Data</td>
+					</tr>
+				</tbody>
+				<tfoot class="pv-table-header-row" ng-if="(tableData.rows | filter:search).length > items">
+					<tr>
+						<td class="pv-table-data-cell" colspan="{{ columnNumber + 2 }}">
+							<div class="row">
+								<div class="col-sm-4">
+									<div style="margin-top : 3px;">
+										{{ displayData.length }} Total Items
+									</div>
+								</div>
+								<div class="col-sm-4 text-right">
+									<div style="margin-top : 3px;">
+										Page {{ page }} of {{ Math.ceil((tableData.rows | filter:search).length / items) }}
+									</div>
+								</div>
+								<div class="col-sm-4">
+									<button 
+										class="no-margin-bottom c-primary-button trend-config-trace-arrange-button"
+										ng-disabled="page == 1"
+										ng-click="goToPage(1)">First
+									</button>
+									<button 
+										class="no-margin-bottom c-primary-button trend-config-trace-arrange-button"
+										ng-disabled="page == 1"
+										ng-click="paginate(-1)">Prev
+									</button>
+									<button 
+										class="no-margin-bottom c-primary-button trend-config-trace-arrange-button"
+										ng-disabled="page >= Math.ceil((tableData.rows | filter:search).length / items)"
+										ng-click="paginate(1)">Next
+									</button>
+									<button 
+										class="no-margin-bottom c-primary-button trend-config-trace-arrange-button"
+										ng-disabled="page >= Math.ceil((tableData.rows | filter:search).length / items)"
+										ng-click="goToPage(Math.ceil((tableData.rows | filter:search).length / items))">Last
+									</button>
+								</div>
+							</div>
+						</td>
+					</tr>
+				</tfoot>
+			</table>
+		</div>
+	</div>
+</div> 

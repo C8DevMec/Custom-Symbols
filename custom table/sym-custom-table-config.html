@@ -1,0 +1,24 @@
+<style>
+input[type=number] {
+    height: 15px;
+    border-radius: 3px;
+    font-size: 12px;
+    text-align: center;
+}
+</style>
+<div class="c-side-pane t-toolbar">
+    <span style="color:#fff; margin-left:15px">Font Size</span>
+</div>
+<div class="config-option-format">
+	<labe>Enter Font Size </labe><input type="number"  autofocus min="12"  ng-model="runtimeData.FontSize" ng-change="runtimeData.changeFontSize(runtimeData.FontSize)"/></br>
+</div>
+
+<div class="config-option-format">
+  <select  style="text-align: left; min-width:150px;" class="textfield" size="10" 
+      ng-options="header as header.name for header in runtimeData.HeadersName" 
+      ng-model="runtimeData.trace" ></select>
+      
+  <div style="margin-top : 10px;"></div>
+      <label for="">Header Name</label>
+      <input type="text" class="textfield" ng-model="runtimeData.trace.name" ng-change="runtimeData.updateConfig(runtimeData.trace.name)">
+  </div>

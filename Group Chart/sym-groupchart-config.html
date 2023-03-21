@@ -1,0 +1,21 @@
+ <div class="c-side-pane t-toolbar">
+    <span style="color:#fff; margin-left:15px">Datasources</span>
+</div>
+<div class="config-option-format">
+    <!-- <pv-color-picker
+            color-keyword="Color"
+            options="{ defaultPalette: 'grayscale', transparent: false }"
+            ng-model="runtimeData.fill" 
+            ng-model-options="{ getterSetter: true }">
+    </pv-color-picker> -->
+    <select size="10" ng-model="runtimeData.Trace" ng-options="t as t for t in runtimeData.Traces" style="width:100%;"></select>
+    <button class="c-primary-button trend-config-trace-arrange-button" ng-click="runtimeData.removeTrace(runtimeData.Trace)">
+        <i class="k-icon k-delete"></i>
+    </button>
+</div>
+<div class="c-side-pane t-toolbar">
+    <span style="color:#fff; margin-left:15px">Granularity</span>
+</div>
+<div class="config-option-format">
+    <select  style="width:100%;" ng-options="t as t for t in runtimeData.DisplayTypes" ng-model="runtimeData.DisplayType" ng-model-options=" {getterSetter: true }"></select>
+</div>

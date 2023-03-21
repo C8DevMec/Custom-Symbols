@@ -1,0 +1,61 @@
+<!-- <div class="c-side-pane t-toolbar">
+    <span style="color:#fff; margin-left:15px">Table Type</span>
+</div>
+<div class="config-option-format">
+    <select ng-model="config.TableType" style="width:100%;">
+    	<option ng-value="0">Exact</option>
+    	<option ng-value="1">Interpolated</option>
+    </select>
+</div> -->
+<div class="c-side-pane t-toolbar">
+    <span style="color:#fff; margin-left:15px">Attributes</span>
+</div>
+<div class="config-option-format">
+	<select size="10" ng-options="t as t for (idx, t) in runtimeData.Traces" ng-model="runtimeData.Trace" style="width:100%;"></select>
+	<button class="c-primary-button trend-config-trace-arrange-button" ng-click="runtimeData.removeTrace(runtimeData.Trace)">
+		<i class="k-icon k-delete"></i>
+	</button>
+</div>
+
+<div class="c-side-pane t-toolbar">
+    <span style="color:#fff; margin-left:15px">Columns</span>
+</div>
+<div class="config-option-format">
+	<div ng-repeat="c in runtimeData.ColumnNames">
+		<input type="checkbox" ng-model="runtimeData.ColumnDetails[c].enabled" ng-change="runtimeData.toggleColumnDetails(c)"> {{ c }}
+	</div>
+</div>
+
+<div class="c-side-pane t-toolbar">
+    <span style="color:#fff; margin-left:15px">AF Server</span>
+</div>
+<div class="config-option-format">
+    <input type="text" ng-model="runtimeData.AFServer">
+</div>
+
+<div class="c-side-pane t-toolbar">
+    <span style="color:#fff; margin-left:15px">AF Database</span>
+</div>
+<div class="config-option-format">
+    <input type="text" ng-model="runtimeData.AFDatabase">
+</div>
+
+<div class="c-side-pane t-toolbar">
+    <span style="color:#fff; margin-left:15px">Table</span>
+</div>
+<div class="config-option-format">
+    <input type="text" ng-model="runtimeData.AFTable">
+</div>
+<!-- <div class="c-side-pane t-toolbar">
+    <span style="color:#fff; margin-left:15px">Background Color</span>
+</div>
+<div class="config-option-format">
+    <pv-color-picker id="backgroundcolor" ng-model="config.BackgroundColor"></pv-color-picker>
+</div>
+<br>
+<div class="c-side-pane t-toolbar">
+    <span style="color:#fff; margin-left:15px">Text Color</span>
+</div>
+<div class="config-option-format">
+    <pv-color-picker id="backgroundcolor" ng-model="config.TextColor"></pv-color-picker>
+</div> -->

@@ -1,0 +1,84 @@
+<style>
+  .weather-widget {
+     display: flex;
+     flex-direction: row;
+     border-collapse: collapse;
+     /* justify-content: space-between; */
+     align-items: center;
+     background: transparent;
+     color: #fff;
+     border-radius: 5px;
+     padding: 10px;
+     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .temperature {
+     font-size: 21.25px;
+     font-weight: bold;
+     /* margin-left: 10px; */
+  }
+  
+  .location-wrapper {
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     /* align-items: flex-start; */
+     text-align: left;
+     margin-bottom: 12px;
+     /* margin-left: 5px; */
+  }
+  
+  .location {
+     font-size: 11px;
+     font-weight: bold;
+     margin-bottom: 5px;
+  }
+  
+  .weather-update {
+     font-size: 9px;
+     /* margin-left: 5px; */
+     font-weight: lighter;
+     margin-bottom: 5px;
+  }
+  
+  .weather-desc {
+     position: absolute;
+     margin-top: 40px;
+     right: 10px;
+     font-size: 10px;
+     font-weight: bold;
+     text-align: right;
+  }
+  
+  .weather-date {
+    position: absolute;
+     margin-top: 65px;
+     right: 10px;
+     font-weight: lighter;
+     font-size: 8px;
+     text-align: right;
+     /* margin-bottom: 15px; */
+  }
+  #weather-icon {
+     position: absolute;
+     bottom: 20px;
+     right: 5px;
+     text-align: right;
+  }
+
+  
+  </style>
+  
+  <div class="weather-widget">
+    <div class="location-wrapper">
+      <div class="location" ng-style="{'font-size' : config.LocationFontSize + 'px'}" >{{runtimeData.location}}</div>
+      <div class="weather-update" ng-style="{'font-size' : config.weatherUpdateCurrentDateFontSize + 'px'}">Weather Update</div>
+      <div class="temperature" ng-style="{'font-size' : config.temperatureFontSize + 'px'}" >{{ config.currentTemp }}°C</div>
+    </div>
+    <div id="weather-icon">
+     <img id="weather-icon-image">
+   </div>
+   <div class="weather-desc" ng-style="{'font-size' : config.LocationFontSize + 'px'}">{{config.weatherDesc}}</div>
+    <div class="weather-date" ng-style="{'font-size' : config.weatherUpdateCurrentDateFontSize + 'px'}">{{config.currentDate}}</div>
+  </div>
+  

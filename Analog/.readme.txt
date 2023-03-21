@@ -1,0 +1,2 @@
+1. Copy analog.png to [PIVISION Directory]\Images
+2. Copy sym-gauss.js, sym-gauss-config.html, sym-gauss-template.html to [PIVISION Directory]\Scripts\app\editor\symbols\ext

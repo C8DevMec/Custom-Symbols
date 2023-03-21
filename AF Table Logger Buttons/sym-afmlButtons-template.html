@@ -1,0 +1,68 @@
+
+	<style type="text/css">
+        #container {	
+            overflow-y: auto;
+            overflow-x: auto;
+        }
+        .scrollable {
+            overflow: auto; 
+            height: calc(100% - 45px);
+        }
+        .relative {
+            position: relative;
+        }
+        .no-margin-bottom {
+            margin-bottom : 0;
+        }
+        .text-right {
+            text-align: right;
+        }
+        .state {
+            padding : 2px 5px;
+            color : #fff;
+            border-radius: 5px;
+            text-align: center;
+            font-size : 11px;
+        }
+        .normal {
+            background : green;
+        }
+        .abnormal  {
+            background : red;
+        }
+        .form-control {
+            width: calc(100% - 10px);
+        }
+        .small-btn {
+            font-size: 10px;
+            margin : 0px;
+            min-width: 30px;
+            width: 30px;
+            padding : 5px;
+        }
+        .small-btn-block {
+            font-size: 10px;
+            margin : 0px;
+            min-width: 30px;
+            width: 72px;
+            padding : 5px;
+        }
+        .v-padding {
+            padding : 5px 0px;
+        }
+    </style>
+    <div style="height : 100%;" class="no-expand">  
+        <div class="v-padding text-right">
+            <!-- <button class="c-primary-button" ng-click="refreshData()">Refresh</button> -->
+            <button class="c-primary-button" ng-click="saveChanges()">Save Changes</button>
+            <input type="file" id="uploadfile" accept=".csv">
+            <button class="c-primary-button" ng-click="updateAllData()">Upload File</button>
+        </div>
+        
+    </div> 
+    <!-- <script src="papaparse.min"></script>
+    <script src="sym-afml.js"></script> -->
+    
+</div> 
+<!-- <script src="papaparse.min"></script>
+<script src="sym-afml.js"></script> -->

@@ -1,0 +1,1 @@
+Copy moment.js to [PI Vision Directory]\Scripts\app\editor\symbols\ext\libraries

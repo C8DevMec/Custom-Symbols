@@ -1,0 +1,111 @@
+<div class="c-side-pane t-toolbar">
+    <span style="color:#fff; margin-left:15px">DATA SOURCES</span>
+</div>
+<div class="config-option-format">
+    <select style="width:100%" size="5" 
+        ng-model="runtimeData.selected_trace">
+        <option ng-value="$index" ng-repeat="t in runtimeData.traces track by $index">{{ t.name }}</option>
+    </select>
+    <button class="c-primary-button trend-config-trace-arrange-button"  
+        ng-click="runtimeData.move(runtimeData.selected_trace, -1)"
+        ng-disabled="runtimeData.selected_trace == 0">
+        <span class="k-icon k-i-arrow-n"></span>
+    </button>
+    <button class="c-primary-button trend-config-trace-arrange-button" 
+        ng-click="runtimeData.move(runtimeData.selected_trace, 1)"
+        ng-disabled="runtimeData.selected_trace >= runtimeData.traces.length - 1">
+        <span class="k-icon k-i-arrow-s"></span>
+    </button>
+    <button class="c-primary-button trend-config-trace-arrange-button" 
+        ng-click="runtimeData.remove(runtimeData.selected_trace)"
+        ng-disabled="runtimeData.traces.length == 1">
+        <span class="k-icon k-delete"></span>
+    </button>
+</div>
+<div class="c-side-pane t-toolbar">
+    <span style="color:#fff; margin-left:15px">GRIDLINES</span>
+</div>
+<div class="config-option-format">
+    <input type="checkbox" ng-model="runtimeData.ShowGridLines" 
+        ng-change="runtimeData.ToggleGridLines(runtimeData.ShowGridLines)"\> Gridlines
+</div>
+<div class="config-option-format">
+    <!-- <select style="width:100%" ng-model="runtimeData.GridType" ng-change="runtimeData.ChangeGridType(runtimeData.GridType)" ng-show="runtimeData.ShowGridLines">
+        <option value="2">Coarse</option>
+        <option value="3">Fine</option>
+        <option value="1">Both</option>
+    </select> -->
+    <input type="checkbox" ng-model="runtimeData.Coarse" 
+        ng-change="runtimeData.ChangeGridType()" ng-disabled="!runtimeData.ShowGridLines"\> Coarse
+</div>
+<div class="config-option-format">
+    <input type="checkbox" ng-model="runtimeData.Fine" 
+        ng-change="runtimeData.ChangeGridType()" ng-disabled="!runtimeData.ShowGridLines"\> Fine
+</div>
+
+<div class="c-side-pane t-toolbar">
+    <span style="color:#fff; margin-left:15px">BACKGROUND</span>
+</div>
+<div class="config-option-format">
+    <pv-color-picker
+            color-keyword="Color"
+            options="{ defaultPalette: 'grayscale', transparent: false }"
+            ng-model="runtimeData.Background" 
+            ng-model-options="{ getterSetter: true }">
+    </pv-color-picker>
+</div>
+<div class="c-side-pane t-toolbar">
+    <span style="color:#fff; margin-left:15px">PLOT COLOR</span>
+</div>
+<div class="config-option-format">
+    <pv-color-picker
+            color-keyword="Color"
+            options="{ defaultPalette: 'grayscale', transparent: false }"
+            ng-model="runtimeData.PlotColor" 
+            ng-model-options="{ getterSetter: true }">
+    </pv-color-picker>
+</div>
+<div class="c-side-pane t-toolbar">
+    <span style="color:#fff; margin-left:15px">SURGE COLOR</span>
+</div>
+<div class="config-option-format">
+    <pv-color-picker
+            color-keyword="Color"
+            options="{ defaultPalette: 'grayscale', transparent: false }"
+            ng-model="runtimeData.SurgeColor" 
+            ng-model-options="{ getterSetter: true }">
+    </pv-color-picker>
+</div>
+<div class="c-side-pane t-toolbar">
+    <span style="color:#fff; margin-left:15px">RPM COLOR</span>
+</div>
+<div class="config-option-format">
+    <pv-color-picker
+            color-keyword="Color"
+            options="{ defaultPalette: 'grayscale', transparent: false }"
+            ng-model="runtimeData.RPMColor" 
+            ng-model-options="{ getterSetter: true }">
+    </pv-color-picker>
+</div>
+<div class="c-side-pane t-toolbar">
+    <span style="color:#fff; margin-left:15px">KW COLOR</span>
+</div>
+<div class="config-option-format">
+    <pv-color-picker
+            color-keyword="Color"
+            options="{ defaultPalette: 'grayscale', transparent: false }"
+            ng-model="runtimeData.KWColor" 
+            ng-model-options="{ getterSetter: true }">
+    </pv-color-picker>
+</div>
+<div class="c-side-pane t-toolbar">
+    <span style="color:#fff; margin-left:15px">AXES COLOR</span>
+</div>
+<div class="config-option-format">
+    <pv-color-picker
+            color-keyword="Color"
+            options="{ defaultPalette: 'grayscale', transparent: false }"
+            ng-model="runtimeData.AxisColor" 
+            ng-model-options="{ getterSetter: true }">
+    </pv-color-picker>
+</div>
